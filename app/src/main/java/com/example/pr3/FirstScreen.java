@@ -34,12 +34,15 @@ public class FirstScreen extends Fragment {
 
         }
         Toast.makeText(getActivity(), "onCreate", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onCreate");
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         Toast.makeText(getActivity(), "onAttach", Toast.LENGTH_SHORT).show();
+
+        Log.d(TAG, "onAttach");
     }
 
     @Override
@@ -48,7 +51,7 @@ public class FirstScreen extends Fragment {
         View v;
         v = inflater.inflate(R.layout.fragment_first_screen, container, false);
         Toast.makeText(getActivity(), "onCreateView", Toast.LENGTH_SHORT).show();
-
+        Log.d(TAG, "onCreateView");
         addCarButton = (Button) v.findViewById(R.id.add_car_button);
 
         addCarButton.setOnClickListener(new View.OnClickListener() {
@@ -74,31 +77,35 @@ public class FirstScreen extends Fragment {
     public void onResume() {
         super.onResume();
         Toast.makeText(getActivity(), "onResume", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         Toast.makeText(getActivity(), "onPause", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onPause");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Toast.makeText(getActivity(), "onDestroyView", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onDestroyView");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         Toast.makeText(getActivity(), "onDetach", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onDetach");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(getActivity(), "onDestroy", Toast.LENGTH_SHORT).show();
-
+        Log.d(TAG, "onDestroy");
     }
 
 }

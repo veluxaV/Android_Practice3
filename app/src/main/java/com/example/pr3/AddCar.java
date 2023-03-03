@@ -33,12 +33,14 @@ public class AddCar extends Fragment {
 
         }
         Toast.makeText(getActivity(), "onCreateAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onCreate");
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         Toast.makeText(getActivity(), "onAttachAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onAttach");
     }
 
 
@@ -47,6 +49,7 @@ public class AddCar extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_car, container, false);
         Toast.makeText(getActivity(), "onCreateViewAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onCreateView");
         backButton = (Button) v.findViewById(R.id.GoBackButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -67,30 +70,34 @@ public class AddCar extends Fragment {
     public void onResume() {
         super.onResume();
         Toast.makeText(getActivity(), "onResumeAddCar", Toast.LENGTH_SHORT).show();
+        Log.d("TAG", "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         Toast.makeText(getActivity(), "onPauseAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onPause");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Toast.makeText(getActivity(), "onDestroyViewAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onDestroyView");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         Toast.makeText(getActivity(), "onDetachAddCar", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onDetach");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(getActivity(), "onDestroyAddCar", Toast.LENGTH_SHORT).show();
-
+        Log.d(TAG, "onDestroy");
     }
 }
