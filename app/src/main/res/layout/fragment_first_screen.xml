@@ -7,6 +7,7 @@
     tools:context=".FirstScreen"
     android:background="@color/grey">
 
+
     <TextView
         android:id="@+id/title_box"
         android:layout_width="match_parent"

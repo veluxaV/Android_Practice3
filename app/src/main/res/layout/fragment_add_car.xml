@@ -7,6 +7,7 @@
     tools:context=".AddCar"
     android:background="@color/grey">
 
+
     <TextView
         android:id="@+id/title_box"
         android:layout_width="match_parent"
@@ -85,5 +86,6 @@
         android:background="@color/red"
         android:text="@string/go_back"
         android:layout_marginTop="17dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
