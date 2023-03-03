@@ -4,12 +4,16 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class AddCar extends Fragment {
 
+    Button backButton;
+    final String TAG = "AddCarLayout";
 
     public static AddCar newInstance() {
         AddCar fragment = new AddCar();
@@ -33,7 +37,19 @@ public class AddCar extends Fragment {
                              Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.fragment_add_car, container, false);
 
+        backButton = (Button) v.findViewById(R.id.GoBackButton);
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Button click in FirstScreen");
+                if (savedInstanceState == null) {
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, FirstScreen.newInstance())
+                            .commit();
+                }
+            }
+        });
         return v;
     }
 }

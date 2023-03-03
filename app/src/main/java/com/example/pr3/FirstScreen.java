@@ -15,7 +15,7 @@ import android.widget.Button;
 public class FirstScreen extends Fragment {
 
     Button addCarButton;
-    final String TAG = "FirstScreen";
+    final String TAG = "FirstScreenLayout";
 
     public static FirstScreen newInstance() {
         FirstScreen fragment = new FirstScreen();
