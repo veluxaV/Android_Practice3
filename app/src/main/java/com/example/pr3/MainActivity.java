@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, FirstScreen.newInstance())
+                    .replace(R.id.container, FirstScreen.newInstance(null, null))
                     .commit();
         }
         //Fragment firstScreen = new FirstScreen();

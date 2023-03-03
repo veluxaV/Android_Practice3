@@ -3,36 +3,42 @@ package com.example.pr3;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstScreen extends Fragment {
 
     Button addCarButton;
     final String TAG = "FirstScreenLayout";
+    final static String ARG_PARAM1 = "CAR_NAME";
+    final static String ARG_PARAM2 = "CAR_BRAND";
+    private TextView add_car_text;
 
-    public static FirstScreen newInstance() {
+
+
+    public static FirstScreen newInstance(String param1, String param2) {
         FirstScreen fragment = new FirstScreen();
         Bundle args = new Bundle();
-        //args.putString(ARG_PARAM1, param1);
-        //args.putString(ARG_PARAM2, param2);
-        //fragment.setArguments(args);
+        if(param1 != null && param2 != null){
+            args.putString(ARG_PARAM1, param1);
+            args.putString(ARG_PARAM2, param2);
+            fragment.setArguments(args);
+        }
         return fragment;
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
-        }
         Toast.makeText(getActivity(), "onCreate", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onCreate");
     }
@@ -52,23 +58,28 @@ public class FirstScreen extends Fragment {
         v = inflater.inflate(R.layout.fragment_first_screen, container, false);
         Toast.makeText(getActivity(), "onCreateView", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onCreateView");
+
+        add_car_text = (TextView) v.findViewById(R.id.add_car_text);
         addCarButton = (Button) v.findViewById(R.id.add_car_button);
+
+        if (getArguments() != null) {
+            String name = getArguments().getString(ARG_PARAM1);
+            String brand = getArguments().getString(ARG_PARAM2);
+            Log.d("Car name Get Args", name);
+            Log.d("Car brand  Get Args", brand);
+            add_car_text.setText("Ваша машина: " + name + " " + brand);
+        }
 
         addCarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Button click in FirstScreen");
+
                 if (savedInstanceState == null) {
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, AddCar.newInstance())
                             .commit();
                 }
-                //AddCar addCar = new AddCar();
-               // FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                //fragmentTransaction.replace(R.id., addCar);
-                //fragmentTransaction.addToBackStack(null);
-                //fragmentTransaction.commit();
             }
         });
         return v;

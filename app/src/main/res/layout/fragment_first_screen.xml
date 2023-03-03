@@ -46,7 +46,7 @@
         android:gravity="center"
         android:layout_centerInParent="true"
         android:background="@color/white"
-        android:text=""
+        android:text="@string/car_is_not_added"
         android:textColor="@color/dark_grey" />
     <LinearLayout
         android:layout_width="wrap_content"
